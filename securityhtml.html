@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- index.html -->
+
+    <!--
+    - index.html 					// will hold the main template for our app
+    - app.js 						// our angular code
+    - partial-group.html 			// Group page code
+    - partial-portfolio.html 	    // Portfolio page code
+    - partial-portfolio-list.html 	// injected into the home page
+    -->
+    <title>AdvantagePoint Security Groups System</title>
+    <!-- CSS (load bootstrap) -->
+    <link type="text/css" rel="stylesheet" href="styles/security/bootstrap-custom.css" media='screen,print' />
+    <link type="text/css" rel="stylesheet" href="styles/security/gcstyleguide.css" media='screen,print' />
+    <link type="text/css" rel="stylesheet" href="styles/security/commonModules.css" media='screen,print' />
+
+    <!--[if lte IE 9]>
+    <link type="text/css" rel="stylesheet" href="styles/security/ie9orless.css" media='screen,print' />
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="scripts/security/angular-ui-router.min.js"></script>  <!-- @license AngularJS v1.2.8 -->
+
+    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="scripts/security/ng-grid.debug.js"></script>
+    <script src="bower_components/ngEkathuwa/dist/ekathuwa.js"></script>
+    <script src="scripts/security/picklist.js"></script>
+
+    <script src="scripts/security/security.js"></script>
+
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="securityApp">
+
+
+<!-- MAIN CONTENT -->
+<div class="container">
+    <!-- HEADER -->
+        <div ng-include src="'partials/security/include-main-header.html'"></div>
+
+    <div id="tabbedNav" ng-controller="tabsController">
+        <!--ul class="nav navbar-nav">
+            <li><a ui-sref="portfolio" class="button tab">Portfolio</a></li>
+            <li><a ui-sref="group" class="button tab">Group</a></li>
+            <li><a ui-sref="user" class="button tab">User</a></li>
+        </ul-->
+
+            <ul cellspacing="0" border="0" class="nav">
+                    <li ng-class="{active:isActive('/portfolio')}"><a ui-sref="portfolio" class="navBtn" href="#" id="homeform:myreportID">
+                        Portfolio
+                    </a></li>
+                    <li ng-class="{active:isActive('/group')}"><a ui-sref="group" class="navBtn_Selected"  id="homeform:sharedReportID">
+                        Group
+                    </a></li>
+                    <li ng-class="{active:isActive('/user')}">
+                        <a ui-sref="user" class="navBtn" id="homeform:reportLibID">
+                        User
+                    </a></li>
+            </ul>
+
+
+    </div>
+
+    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+    <div class="content" ng-controller="tabsController">  <!-- TODO fix this active classname with activeTab -->
+        <div ui-view class="{{activeTab}}"></div>
+    </div>
+
+    <div id="footer" ng-include src="'partials/security/include-main-footer.html'"></div>
+
+</div>
+
+</body>
+</html>
+
