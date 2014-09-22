@@ -1,0 +1,394 @@
+/*
+    .container		::		The outer shell.
+    .content 		::		The main content column of variable width based on device; the grid is divided inside here.
+    .row			::		This is a self-clearing row container. Better combines with col class
+    .col{Number}	::		Direct descendant of row; this inherits from the number class to set the width of each column in that row.
+    Eg. reference :: <link rel='stylesheet' type='text/css'    href="root.css"   media='screen,print' />
+*/
+
+/*
+qn      :  ui-panel class is within the header ?
+qn      :  <!--[if lt IE 9 ]>html5shiv.js<![endif]-->
+qn (prod) : background color of the main page
+*/
+
+/* ===========================================================================
+# GRID
+============================================================================*/
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {display:block;}
+
+ html      {margin: 0;padding:0;}
+ body      {background-color:#fff; color:#37424A; font-family:arial !important; font-size: 13px; font-weight:normal; margin: 0; width: 100%;} /* GC Gray */
+ div       {margin: 0;padding:0;}
+.container {background-color: #d9d9d9; margin:0 auto; max-width:70%; min-height: 800px; overflow:hidden; padding: 0%; position:relative; }  /* Main Wrapper div within the body tag; 70% and center aligned */
+.content   {float:left;text-align:left;margin: 1%;padding:0;position:relative;width:98%;}
+.row	   {float:left;margin:0 0 10px;width:100%;}
+.row.nomargin {margin:0;}
+.column .column {margin:0;}                     /* Removes margins on nested columns */
+.column .sub.column  {margin:0 0 0 10px;}       /* Nested Column Classes */
+.column .sub.column:first-child {margin-left:0}
+.span12 {width: 98%;padding:1%;}
+.span11 {width: 89.67%; float:left;padding:1%;}
+.span10 {width: 81.33%; float:left;padding: 1%;}
+.span9  {width: 73%;      float:left;padding: 1%;}
+.span8  {width: 64.67%; float:left;padding: 1%;}
+.span7  {width: 56.33%; float:left;padding: 1%;}
+.span6  {width: 48%;      float:left;padding: 1%;}
+.span55  {width: 46.67%; float:left;padding: 1%;}
+.span5  {width: 39.67%; float:left;padding: 1%;}
+.span4  {width: 31.33%; float:left;padding: 1%;}
+.span3  {width: 23%;      float:left;padding: 1%;}
+.span2  {width: 14.66%; float:left;padding: 1%;}
+.span1  { float:left;width: 6.33%;padding:1%;}
+.auto  {width:auto;}
+
+div[class*="span"] {/* outline: 1px solid indianred; */ overflow:hidden; }
+div[class*="span"] div[class*="span"] {padding:0;}
+div[class*="span"] div[class*="col-"] {float: left; /*outline: 1px solid blue;*/ padding:0;}
+.column div[class*="span"] {padding:0 !important;}
+div[class*="span"] .col-onehalf       {width:50%;}
+div[class*="span"] .col-onethird      {width:33.33%;}
+div[class*="span"] .col-twothirds     {width:66.67%;}
+div[class*="span"] .col-onequarter    {width:25%;}
+
+
+/* Overrides from Bootstrap */
+.navbar-nav {
+    width:100%;
+}
+.navbar-nav > li > a {
+    padding: 3px 10px;
+    text-align: center;
+    width: 10%;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.navbar-nav > li {
+    display:inline;
+}
+
+/* Spans a Fixed width column */
+.fix1 {width: 100px;}
+.fix2 {width: 200px;}
+.fix3 {width: 300px;}
+.fix4 {width: 400px;}
+.fix5 {width: 500px;}
+.fix6 {width: 600px;}
+
+/* Links */
+a,
+a:visited,
+a:focus {color:#002C77;text-decoration:none;font-weight:bold;} /* Primary Links */ /* Sapphire Dark */
+a:hover {color: #006D9E; text-decoration:underline;outline:0;}  /* Sapphire Medium */
+ul a {font-size:15px;}  /* Navigation Links */
+
+
+h1, h1 a {color:#005771;margin:0 0 10px;padding:0;}   /* TODO: define color, margin, padding, font */
+h2, h2 a { }
+h3, h3 a { }
+h4, h4 a { }
+
+/*   Web Fonts Here, if Exists. */
+
+/* Font color Classes below are just for quick reference */
+.sapphire.dark {color: #002C77;}   /* Primary */
+.sapphire.medium {color: #006D9E;} /* Primary */
+.sapphire.light {color: #D3EBF5;}  /* Primary */
+.gcGray {color: #37424A;}          /* Primary */
+.citrine.medium {color: #C55F24;}  /* Secondary colors :  Citrine, gray1,2,3,4 */
+.gray2 {color: #808080;}
+.gray3 {color: #BFBFBF;}
+.gray4 {color: #E5E5E5;}
+
+
+/* Web-kit related */
+::-moz-selection {background:#a2d8de;color:#fff;text-shadow:none;} /* TODO: update right color */ /* color of highlighted text when selected */
+::selection {background:#a2d8de;color:#fff;text-shadow:none;} /* TODO: update right color */
+*{-webkit-tap-highlight-color: rgba(0,0,0,0);}  /* Prevent any object from being highlighted upon touch event */
+button::-moz-focus-inner,
+input::-moz-focus-inner {border:0;padding:0;}   /* Remove inner padding and border in FF3/4:h5bp.com/l */
+
+/* Tables */
+table {border-collapse:collapse;border-spacing:0;}
+td {vertical-align:top;}
+
+/* Images */
+img {border:0; max-width: 100%;width: auto;} /* Scales images for responsive */ /* TODO: right border color */
+figure {margin:0;}
+svg:not(:root) {overflow:hidden;} /* Correction for overflow not hidden in IE9 */
+
+
+/* Form Elements */
+form {margin:0;}
+fieldset {border:0;margin:0;padding:0;}
+label {}
+legend {}
+button, input, select, textarea {font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle;}   /* Correct font-size to inherit in all browsers */
+button, input {line-height:normal;}                                                                         /* Define line-height as normal to match FF3/4 */
+input[type="radio"], input[type="checkbox"] {
+    line-height: normal;
+    margin: 4px 5px;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] { cursor:pointer;-webkit-appearance:button;*overflow:visible;outline:none !important;}                    /* Display hand cursor for clickable form elements */
+button[disabled],
+input[disabled] {cursor:default;} /* Re-set default cursor for disabled elements */
+
+/* Consistent box sizing and appearance */
+input[type="checkbox"],
+input[type="radio"] { box-sizing:border-box;padding:0;*width:13px;*height:13px;}
+input[type="search"] {
+    -webkit-appearance:textfield;
+    -moz-box-sizing:content-box;
+    -webkit-box-sizing:content-box;
+    box-sizing:content-box;
+    border-radius: 5px;
+    min-height: 25px;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {-webkit-appearance:none;}
+
+textarea {overflow:auto;vertical-align:top;resize:vertical;} /* Remove default vertical scrollbar in IE6/7/8/9 */
+input:valid, textarea:valid {}
+input:invalid, textarea:invalid {background-color:#f0dddd;}
+
+
+/* Typography */
+b, strong  {font-weight:bold;}
+p          {margin:0 0 10px;padding:0;}
+blockquote {margin:1em 40px;}
+dfn        {font-style:italic;}
+hr         {display:block;height:1px;border:0;border-top:1px solid #D8F0F3;margin:10px 0;padding:0;} /* TODO: update right color */
+mark       {background:#ff0;color:#000;font-style:italic;font-weight:bold;} /* TODO: update right color */
+ul, ol, dd {margin:1em 0; padding: 0 0 0 10px;list-style: none;}      /*TODO: define Margins, paddings */
+ul li      {list-style-type:none; overflow:visible;}
+q          {quotes:none;}
+q:before,
+q:after    {content:"";content:none;} /* Remove "" from quotes */
+sup        {font-size:75%;line-height:0;position:relative;vertical-align:baseline;top:-0.5em;}      /* Position subscript   content without affecting line-height */
+sub        {font-size:75%;line-height:0;position:relative;vertical-align:baseline;bottom:-0.25em;}  /* Position superscript content without affecting line-height */
+
+/* Helper classes */
+.mobileviewonly,
+.hide {display:none;}
+.clear      {clear:both}
+.right      {float:right;}
+.left       {float:left;}
+.uppercase  {text-transform:uppercase;}
+.lowercase  {text-transform:lowercase;}
+.capitalize {text-transform:capitalize;}
+.outline    {outline:1px solid #e3e4df;}
+.border     {border:1px solid #e3e4df;}
+.border.top {border-width:1px 0 0 0;}
+.border.bot {border-width:0 0 1px 0;}
+.border.left {border-width:0 0 0 1px;}
+.border.right {border-width:0 1px 0 0;}
+.longtext{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}  /*add an eclipse and truncates strings that are longer than their containers*/
+
+
+/* Padding */
+.pad0  {padding:0;}
+.pad10 {padding:0 10px;}
+.pad20 {padding:0 20px;}
+.pad10.vertical {padding:10px 0;}
+.pad20.vertical {padding:20px 0;}
+.tabSpace {margin-right:8px;}
+.tabSpace.left {margin-left:8px;}
+
+/* Icon Sprite */
+.icon {background-image:url('sprite-icon.png');background-repeat:no-repeat;display:inline-block;vertical-align:middle;} /* TODO: sprite url */
+.icon.search  {background-position:-3px -2px;width:30px;height:29px;margin-left: 6px;}                                                  /* TODO: iconnames need to be identified */
+.icon.search.small  {background-position:-43px -1px;width:22px;height:22px;margin-left: 6px;}                                                  /* TODO: iconnames need to be identified */
+.icon.close  {background-position:-2px -37px;width:41px;height:39px;}                                                  /* TODO: iconnames need to be identified */
+.icon.close:hover  {background-position:-2px -37px;width:41px;height:39px;}       /* TODO: Get the icon for hover effect */                                            /* TODO: iconnames need to be identified */
+
+/* Default classes */
+.breadcrumb {display:block;width:100%;margin-bottom:15px;z-index:1;}
+.breadcrumb a {} /* TODO: right color, font */
+.centerunitclass {border: 0 none !important; padding: 0 0 !important;}
+.appTitle {font-size:24px; font-weight:bold;}
+.sysAlert {font-size:21px; font-weight:bold;}
+.sub-header {margin:10px 0;}
+.subText {font-weight: normal;}
+.bigText {font-size: 15px;}
+.title {font-size:13px; font-weight:bold;}
+.subtitle {font-size:11px; font-weight:bold;}
+.byline,
+.error,
+.timestamp,
+.disclaimer {  }
+
+.text-blue {
+    color: #002c77;
+}
+
+.gray-div{
+    background-color: #eeeeee;
+}
+
+.ul-noBullets {
+    list-style-type: none;
+}
+
+/* Base Gradient - If Used. TODO: Check for colors. */
+.gradient {
+    background: #FCFEFF;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FCFEFF), to(#D4E7EA)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #FCFEFF, #D4E7EA); /* Chrome 10+, Saf5.1+ */
+    background-image: -moz-linear-gradient(top, #FCFEFF, #D4E7EA); /* FF3.6+ */
+    background-image: -ms-linear-gradient(top, #FCFEFF, #D4E7EA); /* IE10 */
+    background-image: -o-linear-gradient(top, #FCFEFF, #D4E7EA); /* Opera 11.10+ */
+    background-image: linear-gradient(top, #FCFEFF, #D4E7EA);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FCFEFF, endColorstr=#D4E7EA);
+}
+/* Rounded Corners (use on image tag for images) */
+.corners {
+    border:transparent solid 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.circle{
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    filter:0;
+    -ms-filter:0;
+    position:relative;
+    behavior:url(/PIE.htc);
+}
+
+
+/* ===========================================================================
+#  Tablet Landscape View (768px to 1024px)
+============================================================================*/
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* ===========================================================================
+#  Tablet Portrait View and below(768px Grid)
+============================================================================*/
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+    .webviewonly {display: none; }
+    .mobileviewonly {display: inherit; }
+}
+
+/* ===========================================================================
+#  Print Styles.
+============================================================================*/
+@media print {
+
+}
+
+
+.equal-height { overflow: hidden; }
+.equal-height .col {
+    width: 31%;
+    padding: 1% 1% 0;
+    float: left;
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+.equal-height.col2 .col {
+    margin-left: 0;
+    padding: 1% 1% 99999px;
+    width: 48%;
+}
+.equal-height .col:nth-child(1) { margin-left: 33.3%; background: #ccc; }
+.equal-height .col:nth-child(2) { margin-left: -66.3%; background: #f2f2f2; }
+.equal-height.col2 .col:nth-child(2),
+.equal-height.col2 .col:nth-child(1){ margin-left: 0;}
+.equal-height .col:nth-child(3) { left: 0; background: #f2f2f2; }
+.equal-height p { margin-bottom: 30px; } /* Bottom padding on col is busy */
+
+
+
+/* Tabs */
+
+/* utilities bar */
+.utility-links {margin-top:0;padding-left: 0;}
+.utility-links li {display:inline;}
+.utility-links li:after { content: "|"; font-size: 18px; padding: 0 1%; }
+.utility-links li:last-child:after { content: " "; font-size: 18px; padding: 0 1%; }
+
+/* Buttons */
+.button, .button:visited, .button:active {
+    background-image: linear-gradient(to bottom, #d9d9d9, #d9d9d9);
+    border: 1px solid #a3a3a3;
+    border-top:0;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1% 3%;
+    font-weight: bold;
+    padding: 1% 3%;
+    text-decoration: none;
+    box-shadow: 3px 3px 4px #636363;
+}
+.button:hover {
+    background-image: linear-gradient(to bottom, #e1ecff, #b7d0ff);
+    border: 1px solid #4a7ebb;
+    color: #fff;
+    text-decoration: none;
+}
+
+.button.tab:hover {
+    background-color: #b7d0ff;
+    background-image: linear-gradient(to bottom, #e1ecff, #b7d0ff);
+    border: none;
+    color: #000;
+    text-decoration: none;
+}
+
+
+a.button, a.button:active, a.button:visited, a.button:hover {
+    color: #000;
+}
+.button.wide, .button.wide:hover, .button.wide:visited {
+    padding: 1% 3%;
+    border-top: 1px solid #4a7ebb;
+}
+.button.wide {
+    border-top:1px solid transparent;
+}
+.button[disabled] {
+    color: #888;
+    cursor: default;
+    opacity: 0.5;
+}
+.button[disabled]:hover {
+    background-color: #fff;
+    background-image: linear-gradient(to bottom, #fff, #e8f2f4);
+    color: #888;
+    cursor: default;
+    opacity: 0.5;
+}
+
+.btn-radial {
+    background-image: radial-gradient(ellipse closest-side at 50% 50% , rgba(107, 107, 107, 0.5), rgba(33, 33, 33, 0.9) 106%);
+    color: #fff;
+    text-align: center;
+    padding: 0 4%;font-weight: bold;
+}
+
+.btn-radial:hover {
+/*    background-image: radial-gradient(ellipse closest-side at 50% 50% , rgba(107, 107, 107, 0.5), rgba(33, 33, 33, 0.9) 80%);*/
+    background-image: linear-gradient(to bottom, #e1ecff, #b7d0ff);
+
+    background-image: radial-gradient(ellipse closest-side at 50% 50% , rgba(183, 208, 255, 0.5), rgba(33, 33, 33, 0.9) 106%);
+
+    color: #fff;
+    text-align: center;
+    padding: 0 4%;font-weight: bold;
+}
+
